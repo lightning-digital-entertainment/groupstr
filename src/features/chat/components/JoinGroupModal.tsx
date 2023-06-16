@@ -1,4 +1,3 @@
-import React from 'react'
 import Modal from '../../../components/Modal'
 import { useAppDispatch } from '../../../store/hooks'
 import { joinGroup } from '../../../store/groupSlice';

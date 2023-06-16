@@ -1,4 +1,3 @@
-import React from "react";
 import RelaySwitcher from "./RelaySwitcher";
 import GroupList from "./GroupList";
 

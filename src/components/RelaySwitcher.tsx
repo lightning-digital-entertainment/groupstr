@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoAdd, IoChevronDown } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { changeActiveRelay } from "../store/relaySlice";

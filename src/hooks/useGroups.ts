@@ -10,7 +10,7 @@ export interface GroupObject extends Event<39000> {
 }
 
 const useGroups = () => {
-    const [groups, setGroups] = useState<Event<39000>[]>([]);
+    const [groups, setGroups] = useState<GroupObject[]>([]);
     const relay = useAppSelector(state => state.relay.activeRelay);
     function normalizeGroupEvent(event: Event<39000>): GroupObject | null {
         const groupSlugTag = event.tags.filter(tag => tag[0] === 'd');
