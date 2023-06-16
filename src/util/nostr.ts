@@ -40,7 +40,7 @@ export async function postEvent(content:string, sk: string, relay: string, group
   }
   event.id = getEventHash(event);
   event.sig = getSignature(event, sk);  
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     const pub = pool.publish([relay], event);
     pub.on('ok', () => {resolve()});
     pub.on('failed', (reason: string) => {reject(reason)});

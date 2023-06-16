@@ -3,7 +3,7 @@ import React from "react";
 
 type BubbleProps = {
     type: 'sent' | 'received'
-    item: Event
+    item: Event<9>
 }
 
 const Bubble = React.memo(function({type, item}: BubbleProps) {
