@@ -1,6 +1,5 @@
-import { Event } from "nostr-tools";
 import React, { useMemo } from "react";
-import { NavLink, useLocation, useMatch, useMatches } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
 import { GroupObject } from "../hooks/useGroups";
 

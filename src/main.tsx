@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -6,7 +5,7 @@ import { Root } from "./routes";
 import { Chat } from "./features/chat";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { SimplePool, generatePrivateKey, getPublicKey } from "nostr-tools";
+import { SimplePool, getPublicKey } from "nostr-tools";
 
 export const pool = new SimplePool();
 

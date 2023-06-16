@@ -1,6 +1,5 @@
-import React from "react";
 import Button from "../../../components/Button";
-import { useNavigate, useNavigation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { joinGroup } from "../../../store/groupSlice";
 import { publishJoinGroup } from "../../../util/nostr";

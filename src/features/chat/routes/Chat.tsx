@@ -1,10 +1,9 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ChatBox from "../components/ChatBox";
 import Message from "../components/Message";
 import useIsMember from "../../../hooks/useIsMember";
 import JoinBox from "../components/JoinBox";
 import useChat from "../hooks/useChat";
-import { Event } from "nostr-tools";
 
 function Chat() {
     const newMessages = useChat();
