@@ -16,7 +16,7 @@ function Chat() {
         <div className="flex grow bg-zinc-900 items-start flex-col justify-between min-h-0">
             <div className="overflow-auto flex w-full p-2 flex-col-reverse">
                 {combinedMessages.map((message) => (
-                    <Message event={message} />
+                    <Message event={message} key={message.id}/>
                 ))}
             </div>
 

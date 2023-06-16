@@ -1,9 +1,11 @@
+import { useParams } from "react-router-dom";
 import { useAppSelector } from "../store/hooks"
 
-const useIsMember = (groupSlug: string) => {
-  console.log('member:', groupSlug)
+const useIsMember = () => {
   const memberOf = useAppSelector(state => state.group.memberOf);
-  return memberOf.includes(groupSlug);
+  const params = useParams();
+  console.log(memberOf)
+  return memberOf.includes(params.group);
 }
 
 export default useIsMember;
