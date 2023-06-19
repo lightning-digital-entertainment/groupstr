@@ -18,7 +18,6 @@ const ChatBox = React.memo(() => {
             if (inputRef.current && params.group) {
                 await postEvent(
                     inputRef.current?.value,
-                    '',
                     "wss://spool.chat",
                     params.group
                 );
