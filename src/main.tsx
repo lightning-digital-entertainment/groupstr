@@ -5,7 +5,7 @@ import { Root } from "./routes";
 import { Chat } from "./features/chat";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { SimplePool, getPublicKey } from "nostr-tools";
+import { SimplePool } from "nostr-tools";
 
 export const pool = new SimplePool();
 

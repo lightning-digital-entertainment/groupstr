@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "./Image";
-import { Bubble } from ".";
 import { Event } from "nostr-tools";
 
 type RelayMessageProps = {

@@ -38,7 +38,7 @@ export async function publishJoinGroup(groupSlug: string, relay: string, pk: str
     })
 }
 
-export async function postEvent(content:string, sk: string, relay: string, groupSlug: string) {
+export async function postEvent(content:string, relay: string, groupSlug: string) {
   const event = {
     kind: 9,
     content,
