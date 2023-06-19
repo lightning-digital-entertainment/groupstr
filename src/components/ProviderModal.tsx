@@ -1,9 +1,9 @@
 import Modal from "./Modal";
-import { useKeyAvailable } from "../hooks/useKey";
+import useNip07 from "../hooks/useNip07";
 
 const ProviderModal = () => {
-    const keyAvaialble = useKeyAvailable();
-    if (keyAvaialble) {
+    const providerAvailable = useNip07();
+    if (providerAvailable) {
         return <></>;
     }
     return (

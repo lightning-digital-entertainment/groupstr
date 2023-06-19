@@ -3,7 +3,6 @@ import ChatInput from "./ChatInput";
 import SendButton from "./SendButton";
 import { postEvent } from "../../../util/nostr";
 import { useParams } from "react-router-dom";
-import { testKey } from "../../../main";
 
 const ChatBox = React.memo(() => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -19,7 +18,7 @@ const ChatBox = React.memo(() => {
             if (inputRef.current && params.group) {
                 await postEvent(
                     inputRef.current?.value,
-                    testKey,
+                    '',
                     "wss://spool.chat",
                     params.group
                 );

@@ -7,7 +7,8 @@ const useChat = () => {
     const [messages, setMessages] = useState<Event<9>[]>([]);
     const params = useParams();
     useEffect(() => {
-        const newMessages: Event<9>[] = []
+        const newMessages = new Set<Event<9>>();
+        setMessages([])
         const sub = pool.sub(
             [`wss://${params.relay}`],
             [
@@ -19,9 +20,9 @@ const useChat = () => {
             ]
         );
         sub.on("event", (event: Event<9>) => {
-            newMessages.push(event)
+            newMessages.add(event);
+            setMessages([...newMessages])
         });
-        sub.on('eose', () => {setMessages(newMessages)})
         return () => {sub.unsub();}
     }, [params]);
     return messages;
