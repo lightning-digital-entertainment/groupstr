@@ -1,9 +1,9 @@
 import { Event, nip19 } from "nostr-tools";
 import React from "react";
 import { useAppSelector } from "../../../store/hooks";
-import { getUserData } from "../../../util/nostr";
+// import { getUserData } from "../../../util/nostr";
 import { useDispatch } from "react-redux";
-import { addUser } from "../../../store/userSlice";
+// import { addUser } from "../../../store/userSlice";
 
 type BubbleProps = {
     type: "sent" | "received";
@@ -13,7 +13,7 @@ type BubbleProps = {
 const Bubble = React.memo(function ({ type, item }: BubbleProps) {
     const userData = useAppSelector((state) => state.user.users[item.pubkey]);
     // const activeRelay = useAppSelector((state) => state.relay.activeRelay);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     return (
         <div
             className={`flex flex-col ${
@@ -24,7 +24,7 @@ const Bubble = React.memo(function ({ type, item }: BubbleProps) {
                 {userData?.name || nip19.npubEncode(item.pubkey).slice(0, 32)}
                 ...
             </p>
-            <button
+            {/* <button
                 onClick={async () => {
                     const data = await getUserData(
                         item.pubkey,
@@ -42,7 +42,7 @@ const Bubble = React.memo(function ({ type, item }: BubbleProps) {
                 }}
             >
                 Test!
-            </button>
+            </button> */}
             <p>{item.content}</p>
             <p className="text-xs text-zinc-500 text-right">
                 {item.created_at}
