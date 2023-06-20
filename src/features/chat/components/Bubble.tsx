@@ -2,7 +2,7 @@ import { Event, nip19 } from "nostr-tools";
 import React from "react";
 import { useAppSelector } from "../../../store/hooks";
 // import { getUserData } from "../../../util/nostr";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { addUser } from "../../../store/userSlice";
 
 type BubbleProps = {
