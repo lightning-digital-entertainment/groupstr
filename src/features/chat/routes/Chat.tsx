@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import ChatBox from "../components/ChatBox";
 import Message from "../components/Message";
 import useIsMember from "../../../hooks/useIsMember";
