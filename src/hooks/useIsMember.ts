@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
-import { useAppSelector } from "../store/hooks"
+import { useAppSelector } from "../store/hooks";
+import useGroupSlug from "../features/chat/hooks/useGroupSlug";
 
 const useIsMember = () => {
-  const memberOf = useAppSelector(state => state.group.memberOf);
-  const params = useParams();
-  if (!params.group) {
-    return false
-  }
-  return memberOf.includes(params.group);
-}
+    const memberOf = useAppSelector((state) => state.group.memberOf);
+    const { fullSlug } = useGroupSlug();
+    if (!fullSlug) {
+        return false;
+    }
+    return memberOf.includes(fullSlug);
+};
 
 export default useIsMember;

@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { Event } from "nostr-tools";
+
+type UserData = {
+    pubkey: string,
+    name: string,
+    picture: string
+}
 
 export interface UserState {
-    users: { [key: string]: Event };
+    users: { [key: string]: UserData };
     loggedInPk: string | undefined;
 }
 
@@ -16,7 +21,7 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        addUser: (state, action: PayloadAction<Event>) => {
+        addUser: (state, action: PayloadAction<UserData>) => {
             state.users[action.payload.pubkey] = action.payload;
         },
         login: (state, action: PayloadAction<string>) => {

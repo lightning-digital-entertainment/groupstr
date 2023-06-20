@@ -11,7 +11,6 @@ import RelayMessage from "../components/RelayMessage";
 
 function Chat() {
     const newMessages = useChat();
-    const params = useParams();
     const isMember = useIsMember();
     const combinedMessages = [...newMessages].sort(
         (a, b) => b.created_at - a.created_at
@@ -31,13 +30,7 @@ function Chat() {
                 })}
             </div>
 
-            {isMember ? (
-                <ChatBox />
-            ) : (
-                <JoinBox
-                    groupSlug={`/${params.relay}/${params.group}/${params["*"]}`}
-                />
-            )}
+            {isMember ? <ChatBox /> : <JoinBox />}
             {/* {!isMember ? <JoinGroupModal groupSlug={`/${params.relay}/${params.group}/${params['*']}`}/> : undefined} */}
         </div>
     );

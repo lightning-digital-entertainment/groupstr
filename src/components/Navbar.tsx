@@ -10,7 +10,6 @@ function Navbar({onClose}: NavBarProps) {
         <div className="flex flex-col p-2 w-full lg:w-1/4 bg-zinc-800 absolute lg:static h-full overflow-scroll">
             <button onClick={onClose}>Close</button>
             <RelaySwitcher />
-            <p>Available Groups:</p>
             <GroupList />
         </div>
     );

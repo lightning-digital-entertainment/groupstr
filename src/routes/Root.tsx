@@ -37,7 +37,7 @@ function Root() {
                         tag[1].slice(1)
                     );
                     joinedGroups.forEach((group) =>
-                        dispatch(joinGroup(group))
+                        dispatch(joinGroup(`/${params.relay}/${group}`))
                     );
                 }
             } catch (e) {

@@ -52,3 +52,7 @@ export async function postEvent(content:string, relay: string, groupSlug: string
     pub.on('failed', (reason: string) => {reject(reason)});
   })
 }
+
+export async function getUserData(pk: string, relay: string) {
+  return pool.get([relay], {kinds: [0], authors: [pk], limit: 1})
+}

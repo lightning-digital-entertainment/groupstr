@@ -10,7 +10,7 @@ export interface RelayState {
 
 const initialState: RelayState = {
     activeRelay: "wss://spool.chat",
-    knownRelays: ["wss://spool.chat", "wss://test.relay"],
+    knownRelays: ["wss://spool.chat", "wss://n29.nostr.com"],
     groupList: []
 };
 
