@@ -4,25 +4,28 @@ import SendButton from "./SendButton";
 import { postEvent } from "../../../util/nostr";
 import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../../store/hooks";
+import useGroupSlug from "../hooks/useGroupSlug";
+
+type ChatParams = {
+    relay: string;
+    group: string;
+    subgroup?: string;
+};
 
 const ChatBox = React.memo(() => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
-    const activeRelay = useAppSelector(state => state.relay.activeRelay)
+    const { relay } = useParams<ChatParams>();
     const keyDownHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
             clickHandler();
         }
     };
-    const params = useParams();
+    const { relativeSlug } = useGroupSlug();
     const clickHandler = async () => {
         try {
-            if (inputRef.current && params.group) {
-                await postEvent(
-                    inputRef.current?.value,
-                    activeRelay,
-                    params.group
-                );
+            if (inputRef.current && relay) {
+                await postEvent(inputRef.current?.value, `wss://${relay}`, relativeSlug);
                 inputRef.current.value = "";
             }
         } catch (e) {
