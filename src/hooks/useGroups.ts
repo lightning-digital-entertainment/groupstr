@@ -44,7 +44,7 @@ const useGroups = () => {
         async function getGroupList() {
             const groupList = await pool.list(
                 [relay],
-                [{ kinds: [39000], limit: 20 }]
+                [{ kinds: [39000], limit: 50 }]
             );
             const normalizedGrouplist = groupList.map(normalizeGroupEvent);
             const filteredGrouplist = normalizedGrouplist.filter(item => item) as GroupObject[]        

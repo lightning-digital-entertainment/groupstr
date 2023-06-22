@@ -46,8 +46,8 @@ const GroupListItem = React.memo(({ groupEvent }: GroupListItemProps) => {
                     }
                     className="rounded-full w-8 h-8"
                 /> */}
-                <div className=" flex rounded-full w-8 h-8 bg-zinc-500"/>
-                <p className="flex">{groupSlug}</p>
+                <div className=" flex rounded-full w-4 h-4 bg-zinc-500"/>
+                <p className="flex text-sm">{groupSlug}</p>
             </NavLink>
             {groupEvent.subgroups.length > 0 &&
             location.pathname.includes(groupEvent.groupSlug)

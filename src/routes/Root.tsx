@@ -17,13 +17,12 @@ function Root() {
 
     useEffect(() => {
         async function getJoinedGroups() {
-            console.log('Intro Hook runs')
             try {
                 const pk = await window.nostr.getPublicKey();
                 console.log(pk)
                 dispatch(login(pk))
                 const joinedGroupEvent = await pool.get(["wss://spool.chat"], {
-                    kinds: [39002],
+                    kinds: [39004],
                     "#p": [pk],
                 });
                 if (!joinedGroupEvent) {

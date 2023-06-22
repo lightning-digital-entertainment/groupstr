@@ -14,8 +14,8 @@ const GroupList = () => {
     const availableGroups = groups.filter(group => !joinedGroups.includes(group))
     return (
         <div>
-            <p>Known Groups</p>
-            <div className="flex gap-2 flex-col py-2">
+            <p>Your Groups</p>
+            <div className="flex gap-2 flex-col p-2 bg-zinc-700 rounded">
                 {joinedGroups.map((groupEvent) => (
                     <GroupListItem
                         groupEvent={groupEvent}
@@ -24,7 +24,7 @@ const GroupList = () => {
                 ))}
             </div>
             <p>Available Groups</p>
-            <div className="flex gap-2 flex-col py-2">
+            <div className="flex gap-2 flex-col p-2 bg-zinc-700 rounded">
                 {availableGroups.map((groupEvent) => (
                     <GroupListItem
                         groupEvent={groupEvent}

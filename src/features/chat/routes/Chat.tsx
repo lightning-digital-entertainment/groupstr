@@ -9,9 +9,9 @@ import { relayKey } from "../../../main";
 import RelayMessage from "../components/RelayMessage";
 
 function Chat() {
-    const newMessages = useChat();
+    const { messages, loadMoreMessages } = useChat();
     const isMember = useIsMember();
-    const combinedMessages = [...newMessages].sort(
+    const combinedMessages = [...messages].sort(
         (a, b) => b.created_at - a.created_at
     );
     const loggedInPk = useAppSelector((state) => state.user.loggedInPk);
@@ -27,10 +27,15 @@ function Chat() {
                     }
                     return <Message event={message} key={message.id} />;
                 })}
+                <button
+                    className="py-2 px-1 rounded bg-yellow-600 shrink-0 my-2"
+                    onClick={loadMoreMessages}
+                >
+                    Load older messages...
+                </button>
             </div>
 
             {isMember ? <ChatBox /> : <JoinBox />}
-            {/* {!isMember ? <JoinGroupModal groupSlug={`/${params.relay}/${params.group}/${params['*']}`}/> : undefined} */}
         </div>
     );
 }

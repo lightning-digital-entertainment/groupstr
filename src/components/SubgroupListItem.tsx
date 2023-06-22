@@ -12,7 +12,7 @@ const SubgroupListItem = ({ subgroupEvent }: SubgroupListItemProps) => {
         <NavLink
             className={({ isActive }) =>
                 [
-                    isActive ? "text-yellow-600" : undefined,
+                    isActive ? "text-yellow-600" : "text-zinc-400",
                     "flex flex-row items-center gap-2 text-xs",
                 ].join(" ")
             }

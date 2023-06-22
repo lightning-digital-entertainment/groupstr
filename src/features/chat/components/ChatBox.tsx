@@ -3,7 +3,6 @@ import ChatInput from "./ChatInput";
 import SendButton from "./SendButton";
 import { postEvent } from "../../../util/nostr";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../../store/hooks";
 import useGroupSlug from "../hooks/useGroupSlug";
 
 type ChatParams = {
