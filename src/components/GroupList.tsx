@@ -2,7 +2,11 @@ import GroupListItem from "./GroupListItem";
 import useGroups from "../hooks/useGroups";
 import { useAppSelector } from "../store/hooks";
 
-const GroupList = () => {
+type GroupListProps = {
+    onClick: React.MouseEventHandler<HTMLAnchorElement>
+}
+
+const GroupList = ({onClick}: GroupListProps) => {
     const groups = useGroups();
     const memberOf = useAppSelector((state) => state.group.memberOf);
     const activeRelay = useAppSelector((state) => state.relay.activeRelay);
@@ -20,6 +24,7 @@ const GroupList = () => {
                     <GroupListItem
                         groupEvent={groupEvent}
                         key={groupEvent.id}
+                        onClick={onClick}
                     />
                 ))}
             </div>
@@ -27,6 +32,7 @@ const GroupList = () => {
             <div className="flex gap-2 flex-col p-2 bg-zinc-700 rounded">
                 {availableGroups.map((groupEvent) => (
                     <GroupListItem
+                        onClick={onClick}
                         groupEvent={groupEvent}
                         key={groupEvent.id}
                     />

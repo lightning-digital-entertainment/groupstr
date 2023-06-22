@@ -23,7 +23,7 @@ function Chat() {
                         return <SentMessage event={message} key={message.id} />;
                     }
                     if (message.pubkey === relayKey) {
-                        return <RelayMessage event={message} />;
+                        return <RelayMessage event={message} key={message.id}/>;
                     }
                     return <Message event={message} key={message.id} />;
                 })}

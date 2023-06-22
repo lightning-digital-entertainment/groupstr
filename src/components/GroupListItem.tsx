@@ -6,9 +6,10 @@ import SubgroupListItem from "./SubgroupListItem";
 
 type GroupListItemProps = {
     groupEvent: GroupObject;
+    onClick: React.MouseEventHandler<HTMLAnchorElement>
 };
 
-const GroupListItem = React.memo(({ groupEvent }: GroupListItemProps) => {
+const GroupListItem = React.memo(({ groupEvent, onClick }: GroupListItemProps) => {
     const activeRelay = useAppSelector((state) => state.relay.activeRelay);
     const location = useLocation();
     const groupSlug = useMemo(() => {
@@ -37,6 +38,7 @@ const GroupListItem = React.memo(({ groupEvent }: GroupListItemProps) => {
                     ].join(" ")
                 }
                 to={`chat/${activeRelay.split("//")[1]}${groupSlug}`}
+                onClick={onClick}
                 end
             >
                 {/* <img

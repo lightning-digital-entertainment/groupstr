@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { Navbar } from "../components";
@@ -54,9 +54,9 @@ function Root() {
                 <div className="h-full flex flex-col w-full">
                     <div className="py-2 flex gap-2 p-2">
                         <button
-                            onClick={() => {
+                            onClick={useCallback(() => {
                                 setNavVisible((prev) => !prev);
-                            }}
+                            }, [])}
                         >
                             {navVisible ? (
                                 <AiOutlineMenuFold />

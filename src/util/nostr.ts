@@ -42,7 +42,7 @@ export async function postEvent(content:string, relay: string, groupSlug: string
   const event = {
     kind: 9,
     content,
-    tags: [['g', `/${groupSlug}`]],
+    tags: [['g', groupSlug]],
     created_at: Math.floor(Date.now() / 1000),
   }
   const signedEvent = await window.nostr.signEvent(event) 

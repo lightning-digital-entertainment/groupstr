@@ -21,6 +21,7 @@ const ChatBox = React.memo(() => {
         }
     };
     const { relativeSlug } = useGroupSlug();
+    console.log(relativeSlug);
     const clickHandler = async () => {
         try {
             if (inputRef.current && relay) {

@@ -8,8 +8,10 @@ const useChat = () => {
     const params = useParams();
 
     const until = useMemo(() => {
-        return messages.sort((a, b) => a.created_at - b.created_at)[0]?.created_at ||
-            Math.floor(Date.now() / 1000);
+        return (
+            messages.sort((a, b) => a.created_at - b.created_at)[0]
+                ?.created_at || Math.floor(Date.now() / 1000)
+        );
     }, [messages]);
 
     async function loadMoreMessages() {
@@ -33,7 +35,6 @@ const useChat = () => {
 
     useEffect(() => {
         const newMessages = new Set<Event<9>>();
-        setMessages([]);
         const sub = pool.sub(
             [`wss://${params.relay}`],
             [
@@ -44,7 +45,7 @@ const useChat = () => {
                             params.subgroup ? `/${params.subgroup}` : ""
                         }`,
                     ],
-                    limit: 5,
+                    limit: 10,
                 },
             ]
         );
