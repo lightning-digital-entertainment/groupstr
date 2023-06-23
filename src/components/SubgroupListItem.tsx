@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
-import { GroupObject } from "../hooks/useGroups";
 
 type SubgroupListItemProps = {
-    subgroupEvent: GroupObject;
+    subgroupSlug: string;
 };
 
-const SubgroupListItem = ({ subgroupEvent }: SubgroupListItemProps) => {
+const SubgroupListItem = ({ subgroupSlug }: SubgroupListItemProps) => {
     const activeRelay = useAppSelector((state) => state.relay.activeRelay);
     return (
         <NavLink
@@ -16,11 +15,11 @@ const SubgroupListItem = ({ subgroupEvent }: SubgroupListItemProps) => {
                     "flex flex-row items-center gap-2 text-xs",
                 ].join(" ")
             }
-            to={`/chat/${activeRelay.split("//")[1]}/${
-                subgroupEvent.groupSlug
+            to={`/chat/${activeRelay.split("//")[1]}${
+                subgroupSlug
             }`}
         >
-            /{subgroupEvent.groupSlug}
+            /{subgroupSlug}
         </NavLink>
     );
 };
