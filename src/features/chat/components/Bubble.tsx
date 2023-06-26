@@ -1,6 +1,6 @@
 import { Event, nip19 } from "nostr-tools";
 import React from "react";
-import { useAppSelector } from "../../../store/hooks";
+import { UserData } from "../../../store/userSlice";
 // import { getUserData } from "../../../util/nostr";
 // import { useDispatch } from "react-redux";
 // import { addUser } from "../../../store/userSlice";
@@ -8,12 +8,10 @@ import { useAppSelector } from "../../../store/hooks";
 type BubbleProps = {
     type: "sent" | "received";
     item: Event<9>;
+    userData: UserData;
 };
 
-const Bubble = React.memo(function ({ type, item }: BubbleProps) {
-    const userData = useAppSelector((state) => state.user.users[item.pubkey]);
-    // const activeRelay = useAppSelector((state) => state.relay.activeRelay);
-    // const dispatch = useDispatch();
+const Bubble = React.memo(function ({ type, item, userData }: BubbleProps) {
     return (
         <div
             className={`flex flex-col ${
@@ -22,7 +20,6 @@ const Bubble = React.memo(function ({ type, item }: BubbleProps) {
         >
             <p className="text-sm text-zinc-500">
                 {userData?.name || nip19.npubEncode(item.pubkey).slice(0, 32)}
-                ...
             </p>
             {/* <button
                 onClick={async () => {

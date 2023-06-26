@@ -1,5 +1,7 @@
 import { Event } from "nostr-tools";
 import { pool } from "../main";
+import { store } from "../store/store";
+import { addUser } from "../store/userSlice";
 
 declare global {
   interface Window {
@@ -55,5 +57,9 @@ export async function postEvent(content:string, relay: string, groupSlug: string
 }
 
 export async function getUserData(pk: string, relay: string) {
-  return pool.get([relay], {kinds: [0], authors: [pk], limit: 1})
+  const userEvent = await pool.get([relay], {kinds: [0], authors: [pk], limit: 1})
+  if (userEvent) {
+    const userData = JSON.parse(userEvent.content);
+    store.dispatch(addUser({...userData, pubkey: pk}))
+  }
 }

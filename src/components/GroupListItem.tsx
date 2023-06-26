@@ -19,15 +19,15 @@ const GroupListItem = React.memo(
                 return dTag[0][1];
             }
         }, [groupEvent]);
-        // const groupImage = useMemo(() => {
-        //     const pictureTag = groupEvent.tags.filter(
-        //         (tag) => tag[0] === "picture"
-        //     );
-        //     if (pictureTag.length > 0) {
-        //         return pictureTag[0][1].length > 1 ? pictureTag[0][1] : undefined;
-        //     }
-        //     return undefined;
-        // }, [groupEvent]);
+        const groupImage = useMemo(() => {
+            const pictureTag = groupEvent.tags.filter(
+                (tag) => tag[0] === "picture"
+            );
+            if (pictureTag.length > 0) {
+                return pictureTag[0][1].length > 1 ? pictureTag[0][1] : undefined;
+            }
+            return undefined;
+        }, [groupEvent]);
 
         return (
             <div>
@@ -42,18 +42,17 @@ const GroupListItem = React.memo(
                     onClick={onClick}
                     end
                 >
-                    {/* <img
+                    <img
                     src={
                         groupImage ||
                         "https://pbs.twimg.com/profile_images/1589236782381637633/wVdMF7jp_400x400.jpg"
                     }
-                    className="rounded-full w-8 h-8"
-                /> */}
-                    <div className=" flex rounded-full w-4 h-4 bg-zinc-500" />
-                    <p className="flex text-sm">{groupSlug}</p>
+                    className="rounded-full w-4 h-4"
+                />
+                    <p className="flex">{groupSlug}</p>
                 </NavLink>
                 {location.pathname.includes(groupEvent.groupSlug)
-                    ? <SubGroupList parentGroupSlug={groupEvent.groupSlug}/>
+                    ? <SubGroupList parentGroupSlug={groupEvent.groupSlug} onClick={onClick}/>
                     : undefined}
             </div>
         );

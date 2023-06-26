@@ -11,8 +11,6 @@ const useSubGroups = (parentGroup: string) => {
                 [relay],
                 { kinds: [39003], '#d': [`/${parentGroup}`]}
             );
-            console.log(subgroupEvent)
-            console.log(parentGroup)
             const subgroupTags = subgroupEvent?.tags.filter(tag => tag[0] === 'g')
             if (!subgroupTags || subgroupTags.length === 0) {
               setGroups([])
