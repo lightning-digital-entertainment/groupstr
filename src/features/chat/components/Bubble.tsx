@@ -1,6 +1,7 @@
 import { Event, nip19 } from "nostr-tools";
 import React from "react";
 import { UserData } from "../../../store/userSlice";
+import { getAge } from "../../../util/time";
 // import { getUserData } from "../../../util/nostr";
 // import { useDispatch } from "react-redux";
 // import { addUser } from "../../../store/userSlice";
@@ -42,7 +43,7 @@ const Bubble = React.memo(function ({ type, item, userData }: BubbleProps) {
             </button> */}
             <p>{item.content}</p>
             <p className="text-xs text-zinc-500 text-right">
-                {item.created_at}
+                {getAge(item.created_at)}
             </p>
         </div>
     );
